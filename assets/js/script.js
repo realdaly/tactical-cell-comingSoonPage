@@ -1,27 +1,22 @@
 // Logo Follow Cursor Effect
+const imgContainer = document.querySelector(".container")
 const img = document.querySelector(".img img")
-const walk = 100
-document.addEventListener('mousemove', shadow)
+document.addEventListener("mousemove", ({ clientX, clientY }) => {
+    const { top: topIndent, right: rightIndent, width, height } = imgContainer.getBoundingClientRect()
+    let xAxis = -((clientX - (rightIndent * 0.01)) - width / 2) / 50
+    let yAxis = ((clientY - (topIndent * 0.01)) - height / 2) / 50
+    img.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) rotateZ(${yAxis}deg)`
+})
 
-function shadow(e){
-    const width = e.offsetWidth;
-    const height = e.offsetHeight
+// Animate In
+document.addEventListener("mouseenter", (e) => {
+    img.style.transform = "translateZ(50vw)"
+})
 
-    let x = e.offsetX
-    let y = e.offsetY
-
-    if(e !== e.target){
-        x = x + e.target.offsetLeft;
-        y = y + e.target.offsetTop;
-    }
-
-    const xWalk = Math.round(( x / width * walk) - (walk / 2))
-    const yWalk = Math.round(( y /height * walk) - (walk / 2))
-
-    img.style.boxShadow = `${xWalk}px ${yWalk}px #000`;
-
-    console.log(xWalk, yWalk)
-}
+//Animate Out
+document.addEventListener("mouseleave", (e) => {
+    img.style.transform = "translateZ(0)"
+})
 
 
 // Text Erase Effect

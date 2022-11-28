@@ -35,9 +35,15 @@
     margin-bottom: 2rem;
 }
 
+@keyframes logoAnimation {
+    0% { filter: drop-shadow(0 0 5px #000) }
+    50% { filter: drop-shadow(0 0 15px #000) }
+    100% { filter: drop-shadow(0 0 5px #000) }
+}
+
 .contentWrapper .img img {
     width: 10rem;
-    filter: drop-shadow(0 0 4px #000);
+    animation: logoAnimation 4s infinite;
 }
 
 .contentWrapper .title {
