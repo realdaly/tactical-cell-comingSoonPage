@@ -4,140 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.png">
     <script src="https://kit.fontawesome.com/b26d99a49b.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Tactical Cell</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400&display=swap');
-
-        :root {
-            --dark: #212529;
-            --bg: #f8f9fa;
-            --border: 1px solid #e5e5e5;
-        }
-
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        .container {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg);
-            width: 90%;
-            margin: 0 auto;
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            gap: 1rem;
-        }
-
-        .contentWrapper {
-            position: relative;
-        }
-
-        .contentWrapper .title {
-            color: var(--dark);
-            font-size: 60px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .contentWrapper .typingErase {
-            color: #000;
-            font-size: 30px;
-            font-weight: 500;
-            width: 0;
-            max-width: max-content;
-            overflow: hidden; 
-            white-space: nowrap;
-            margin: 0;
-            min-height: 3rem;
-        }
-
-        .socialMedia {
-            margin-top: 2rem;
-            padding-top: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            border-top: var(--border);
-        }
-
-        .socialMedia i {
-            color: var(--dark);
-            cursor: pointer;
-        }
-
-        .contentWrapper .animateText {
-            animation: 6s typing-erase steps(200, start) infinite, blink-caret .5s step-end infinite;
-            border-right: .05em solid #464545;
-        }
-
-        @media screen and (max-width: 500px) {
-            .container {
-                width: 100%;
-            }
-
-            .contentWrapper .title {
-                font-size: 40px;
-            }
-
-            .contentWrapper .typingErase {
-                font-size: 20px;
-                min-height: 1rem;
-            }
-        }
-
-        @keyframes typing-erase {
-            0% { width: 0 }
-            20% { width: 0 }
-            40% { width: 100% }
-            60% { width: 100% }
-            80% { width: 0 }
-            100% { width: 0 }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: gray }
-        }
-    </style>
 </head>
 <body>
     <main class="container">
         <div class="contentWrapper">
+            <div class="img">
+                <img class="logo" src="./assets/images/logo.png" alt="Logo">
+            </div>
             <div class="textWrapper" dir="ltr" lang="en">
                 <h1 class="title">Tactical Cell</h1>
                 <p class="typingErase animateText">Coming soon . . .</p>
             </div>
             <div class="socialMedia">
-                <i class="fa-brands fa-square-facebook fa-2x"></i>
-                <i class="fa-brands fa-square-instagram fa-2x"></i>
+                <a target="blank" href="https://www.facebook.com/Tacticiq/"><i class="fa-brands fa-square-facebook fa-2x"></i></a>
+                <a target="blank" href="https://www.instagram.com/tactical.cell/"><i class="fa-brands fa-square-instagram fa-2x"></i></a>
             </div>
         </div>
     </main>
-    <script>
-        const animateText = document.querySelector(".animateText")
-        const textWrapper = document.querySelector(".textWrapper")
-
-        setInterval(function(){
-            if(animateText.innerHTML == "Coming soon . . ."){
-                animateText.innerHTML = `انتظرونا قريبا . . .`
-                animateText.style.borderRight = "none"
-                animateText.style.borderLeft = ".05em solid #464545"
-                textWrapper.dir = "rtl"
-                textWrapper.lang = "ar"
-            } else {
-                animateText.innerHTML = `Coming soon . . .`
-                animateText.style.borderRight = ".05em solid #464545"
-                animateText.style.borderLeft = "none"
-                textWrapper.dir = "ltr"
-                textWrapper.lang = "en"
-
-            }
-        }, 6000)
-    </script>
 </body>
 </html>
