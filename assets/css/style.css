@@ -30,20 +30,36 @@
 }
 
 .contentWrapper .img {
+    position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
 }
 
-@keyframes logoAnimation {
-    0% { filter: drop-shadow(0 0 5px #000) }
-    50% { filter: drop-shadow(0 0 15px #000) }
-    100% { filter: drop-shadow(0 0 5px #000) }
+.contentWrapper .img .ring {
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    animation: ring 2s linear infinite;
 }
+
+.contentWrapper .img .ring::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
 
 .contentWrapper .img img {
     width: 10rem;
-    animation: logoAnimation 4s infinite;
 }
 
 .contentWrapper .title {
@@ -110,4 +126,21 @@
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: gray }
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 0 3px 0 blue;
+    }
+
+    50% {
+        transform: rotate(180deg);
+        box-shadow: 0 3px 0 tomato;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 0 3px 0 blue;
+    }
 }
